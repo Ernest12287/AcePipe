@@ -190,11 +190,11 @@ public class MainActivity extends AppCompatActivity {
             // if this is enabled by the user.
             NotificationWorker.initialize(this);
         }
-        if (!UpdateSettingsFragment.wasUserAskedForConsent(this)
-                && !App.getApp().isFirstRun()
-                && ReleaseVersionUtil.INSTANCE.isReleaseApk()) {
-            UpdateSettingsFragment.askForConsentToUpdateChecks(this);
-        }
+        // if (!UpdateSettingsFragment.wasUserAskedForConsent(this)
+        //         && !App.getApp().isFirstRun()
+        //         && ReleaseVersionUtil.INSTANCE.isReleaseApk()) {
+        //     UpdateSettingsFragment.askForConsentToUpdateChecks(this);
+        // }
 
         MigrationManager.showUserInfoIfPresent(this);
     }
