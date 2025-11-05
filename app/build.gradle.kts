@@ -36,7 +36,7 @@ android {
 
         versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: 1005
 
-        versionName = "0.28.0"
+        versionName = "0.29.0"
         System.getProperty("versionNameSuffix")?.let { versionNameSuffix = it }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
