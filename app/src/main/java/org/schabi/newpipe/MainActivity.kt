@@ -4,18 +4,20 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.google.android.material.tabs.TabLayoutMediator
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 import org.schabi.newpipe.about.AboutActivity
 import org.schabi.newpipe.databinding.ActivityMainBinding
 import org.schabi.newpipe.fragments.ExploreFragment
 import org.schabi.newpipe.fragments.LibraryFragment
 import org.schabi.newpipe.util.ThemeHelper
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(ThemeHelper.getSettingsThemeStyle(this))
@@ -27,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(true)
+
+        drawerLayout = binding.drawerLayout
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, binding.toolbar,
+            R.string.drawer_open, R.string.drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        binding.navigationView.setNavigationItemSelectedListener(this)
 
         setupViewPager()
     }
@@ -67,16 +79,28 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.nav_telegram -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.telegram_channel_url)))
-                startActivity(intent)
+                openUrl(getString(R.string.telegram_channel_url))
                 return true
             }
             R.id.nav_whatsapp -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.whatsapp_channel_url)))
-                startActivity(intent)
+                openUrl(getString(R.string.whatsapp_channel_url))
                 return true
             }
         }
-        return super.onNavigationItemSelected(item)
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
