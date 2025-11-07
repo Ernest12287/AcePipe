@@ -4,4 +4,17 @@
     <group android:id="@+id/menu_tabs_group" />
     <group android:id="@+id/menu_kiosks_group" />
     <group android:id="@+id/menu_options_about_group" />
+
+    <item android:title="@string/settings_category_social_title">
+        <menu>
+            <item
+                android:id="@+id/nav_telegram"
+                android:icon="@drawable/ic_telegram"
+                android:title="@string/join_telegram" />
+            <item
+                android:id="@+id/nav_whatsapp"
+                android:icon="@drawable/ic_whatsapp"
+                android:title="@string/join_whatsapp" />
+        </menu>
+    </item>
 </menu>

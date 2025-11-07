@@ -897,4 +897,5 @@
     <string name="github_repo">Ernest12287/AcePipe</string>
     <string name="update_url">https://api.github.com/repos/Ernest12287/AcePipe/releases</string>
     <string name="update_latest_url">https://api.github.com/repos/Ernest12287/AcePipe/releases/latest</string>
+    <string name="settings_category_social_title">Social Channels</string>
 </resources>

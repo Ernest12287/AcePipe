@@ -35,7 +35,13 @@ class AboutFragment : Fragment() {
         // Set app version
         binding.appVersion.text = "v${BuildConfig.VERSION_NAME}"
 
-        // Set up social channel buttons
+        // Set up social channel buttons with equal width
+        binding.socialButtonsContainer.weightSum = 2f
+        binding.telegramButton.layoutParams.width = 0
+        binding.whatsappButton.layoutParams.width = 0
+        binding.telegramButton.layoutParams.weight = 1f
+        binding.whatsappButton.layoutParams.weight = 1f
+
         binding.telegramButton.setOnClickListener {
             openUrl(getString(R.string.telegram_channel_url))
         }
