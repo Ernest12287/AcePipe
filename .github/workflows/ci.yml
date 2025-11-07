@@ -21,13 +21,28 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Clean Build Directory
+      - name: Clean Everything
         run: |
-          rm -rf app/build
-          rm -f app/src/main/java/org/schabi/newpipe/MainActivity.java
-          ./gradlew clean
+          # Clean gradle caches
+          rm -rf ~/.gradle/caches/
+          # Clean build directories
+          rm -rf app/build/
+          rm -rf build/
+          # Clean generated files
+          rm -rf app/build/tmp/kapt3/
+          rm -rf app/src/main/java/org/schabi/newpipe/MainActivity.java
+          # Verify MainActivity.java is gone
+          if [ -f "app/src/main/java/org/schabi/newpipe/MainActivity.java" ]; then
+            echo "Error: MainActivity.java still exists"
+            exit 1
+          fi
+          # Run gradle clean
+          ./gradlew clean --no-daemon
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # ...existing build steps...
+      - name: Build Debug
+        run: ./gradlew assembleDebug --stacktrace
+
+      # ...existing code...
