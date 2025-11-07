@@ -34,6 +34,10 @@ android {
         minSdk = 21
         targetSdk = 35
 
+        buildConfigField("String", "GITHUB_REPO", "\"Ernest12287/AcePipe\"")
+        buildConfigField("String", "RELEASE_URL", "\"https://api.github.com/repos/Ernest12287/AcePipe/releases\"")
+        buildConfigField("String", "RELEASE_LATEST_URL", "\"https://api.github.com/repos/Ernest12287/AcePipe/releases/latest\"")
+
         versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: 1005
 
         versionName = "0.29.0"

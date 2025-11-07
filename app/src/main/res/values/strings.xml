@@ -871,7 +871,7 @@
     <string name="migration_info_6_7_title">SoundCloud Top 50 page removed</string>
     <string name="migration_info_6_7_message">SoundCloud has discontinued the original Top 50 charts. The corresponding tab has been removed from your main page.</string>
     <string name="migration_info_7_8_title">YouTube combined trending removed</string>
-    <string name="migration_info_7_8_message">YouTube has discontinued the combined trending page as of 21st July 2025. NewPipe replaced the default trending page with the trending livestreams.\n\nYou can also select different trending pages in \"Settings > Content > Content of main page\".</string>
+    <string name="migration_info_7_8_message">YouTube has discontinued the combined trending page as of 21st July 2025. NewPipe replaced the default trending page with the trending livestreams.\n\nYou can also select different trending pages in "Settings > Content > Content of main page".</string>
     <string name="trending_gaming">Gaming trends</string>
     <string name="trending_podcasts">Trending podcasts</string>
     <string name="trending_movies">Trending movies and shows</string>
@@ -881,5 +881,20 @@
     <string name="player_http_invalid_status">HTTP error %1$s received from server while playing</string>
     <string name="youtube_player_http_403">HTTP error 403 received from server while playing, likely caused by an IP ban or streaming URL deobfuscation issues</string>
     <string name="sign_in_confirm_not_bot_error">%1$s refused to provide data, asking for a login to confirm the requester is not a bot.\n\nYour IP might have been temporarily banned by %1$s, you can wait some time or switch to a different IP (for example by turning on/off a VPN, or by switching from WiFi to mobile data).</string>
-    <string name="unsupported_content_in_country">This content is not available for the currently selected content country.\n\nChange your selection from \"Settings > Content > Default content country\".</string>
+    <string name="unsupported_content_in_country">This content is not available for the currently selected content country.\n\nChange your selection from "Settings > Content > Default content country".</string>
+    <string name="join_telegram">Join Telegram Channel</string>
+    <string name="join_whatsapp">Join WhatsApp Channel</string>
+    <string name="developer_name">Pease Ernest</string>
+    <string name="telegram_channel_url">https://t.me/ernesttechhouse</string>
+    <string name="whatsapp_channel_url">https://whatsapp.com/channel/0029VayK4ty7DAWr0jeCZx0i</string>
+    <!-- Update Settings -->
+    <string name="updates_category_title">Updates</string>
+    <string name="enable_automatic_updates_title">Enable automatic updates</string>
+    <string name="enable_automatic_updates_key">enable_automatic_updates</string>
+    <string name="check_for_updates_title">Check for updates</string>
+    <string name="check_for_updates_key">check_for_updates</string>
+    <string name="check_for_updates_summary">Check for new versions of AcePipe</string>
+    <string name="github_repo">Ernest12287/AcePipe</string>
+    <string name="update_url">https://api.github.com/repos/Ernest12287/AcePipe/releases</string>
+    <string name="update_latest_url">https://api.github.com/repos/Ernest12287/AcePipe/releases/latest</string>
 </resources>
