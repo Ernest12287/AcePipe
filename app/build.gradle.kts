@@ -126,6 +126,15 @@ android {
             )
         }
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    kapt {
+        correctErrorTypes = true
+        useBuildCache = false
+    }
 }
 
 // Custom dependency configuration for ktlint

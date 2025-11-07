@@ -1,3 +1,4 @@
+@file:JvmName("MainActivityKt")
 package org.schabi.newpipe
 
 import android.content.Intent
