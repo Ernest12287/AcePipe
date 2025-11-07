@@ -17,10 +17,17 @@
             android:layout_height="?attr/actionBarSize"
             app:title="@string/title_activity_about" />
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/about_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_holder"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/about_view_pager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
