@@ -128,12 +128,16 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+        freeCompilerArgs += listOf("-Xjvm-default=all")
     }
 
     kapt {
+        javacOptions {
+            option("-source", "17")
+            option("-target", "17")
+        }
         correctErrorTypes = true
-        useBuildCache = false
     }
 }
 
