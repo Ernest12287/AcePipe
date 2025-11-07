@@ -20,28 +20,34 @@ import org.schabi.newpipe.util.ThemeHelper
 import org.schabi.newpipe.util.external_communication.ShareUtils
 
 class AboutActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAboutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(ThemeHelper.getSettingsThemeStyle(this))
         super.onCreate(savedInstanceState)
-        ThemeHelper.setTheme(this)
-        title = getString(R.string.title_activity_about)
 
-        val aboutBinding = ActivityAboutBinding.inflate(layoutInflater)
-        setContentView(aboutBinding.root)
-        setSupportActionBar(aboutBinding.aboutToolbar)
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         val mAboutStateAdapter = AboutStateAdapter(this)
         // Set up the ViewPager with the sections adapter.
-        aboutBinding.aboutViewPager2.adapter = mAboutStateAdapter
+        binding.aboutViewPager2.adapter = mAboutStateAdapter
         TabLayoutMediator(
-            aboutBinding.aboutTabLayout,
-            aboutBinding.aboutViewPager2
+            binding.aboutTabLayout,
+            binding.aboutViewPager2
         ) { tab, position ->
             tab.setText(mAboutStateAdapter.getPageTitle(position))
         }.attach()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_holder, AboutFragment())
+            .commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
